@@ -16,3 +16,6 @@ important to have internet connection
 ## How to run the project
 
 sh exec-project.sh
+
+## Testing the application
+curl 127.0.0.1:8080
