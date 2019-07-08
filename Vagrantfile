@@ -30,5 +30,8 @@ Vagrant.configure("2") do |config|
     sudo usermod -aG docker vagrant
     sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
+    git clone https://github.com/agnaldom/devops-challenge.git
+    cd devops-challenge/
+    sh init-docker.sh
   SHELL
 end
