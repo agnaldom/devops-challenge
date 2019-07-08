@@ -14,6 +14,9 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/bionic64"
 
+  config.vm.network "forwarded_port", guest: 8080, host: 8080,
+    auto_correct: true
+
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
@@ -28,7 +31,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get  install -y  docker-ce  containerd.io
     sudo service docker restart
     sudo usermod -aG docker vagrant
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     git clone https://github.com/agnaldom/devops-challenge.git
     cd devops-challenge/
