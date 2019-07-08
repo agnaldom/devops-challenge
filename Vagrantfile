@@ -32,6 +32,6 @@ Vagrant.configure("2") do |config|
     sudo chmod +x /usr/local/bin/docker-compose
     git clone https://github.com/agnaldom/devops-challenge.git
     cd devops-challenge/
-    sh init-docker.sh
+    docker-compose up -d
   SHELL
 end
